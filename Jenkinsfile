@@ -1,6 +1,7 @@
 pipeline{
         agent {
-            docker {
+            postgres {
+                label 'postgresAgent'
                 image 'node'
             }
         }
