@@ -1,9 +1,6 @@
 pipeline{
         agent {
-            docker {
-                label 'postgresAgent'
-                image 'postgres'
-            }
+            label 'master'
         }
         stages{
             stage('setup db'){
