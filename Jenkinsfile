@@ -2,7 +2,7 @@ pipeline{
         agent {
             postgres {
                 label 'postgresAgent'
-                image 'node'
+                image 'postgres'
             }
         }
         stages{
