@@ -1,18 +1,20 @@
 pipeline {
-    agent 'any'
-    tools {nodejs "node"}
+    agent any
+
     stages {
-        stage('Setup data layer'){
-            steps{
-                def pgImage = docker.build("postgres:latest")
-                pgImage.inside {
-                    sh 'docker run -it --rm --network some-network postgres psql -h some-postgres -U postgres'
-                }
+        stage('Build') {
+            steps {
+                echo 'Building..'
             }
         }
         stage('Test') {
             steps {
-                sh 'node --version'
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
