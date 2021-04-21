@@ -1,11 +1,17 @@
 pipeline{
         agent {
             label 'master'
+            image 'node'
         }
         stages{
-            stage('setup db'){
+            stage('install dependencies'){
                 steps{
-                    sh 'ls'
+                    sh 'npm install' 
+                }
+            }
+             stage('build'){
+                steps{
+                    sh 'npm run build' 
                 }
             }
         }
