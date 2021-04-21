@@ -1,7 +1,7 @@
 pipeline{
         agent {
             docker {
-                label 'master'
+                label 'docker'
                 image 'node'
             }
         }
