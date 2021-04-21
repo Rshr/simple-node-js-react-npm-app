@@ -1,6 +1,6 @@
 pipeline{
         agent {
-            docker {image 'postgres:latest'}
+            master {image 'postgres:latest'}
         }
         stages{
             stage('setup db'){
