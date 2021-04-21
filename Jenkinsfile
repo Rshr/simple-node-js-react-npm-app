@@ -5,6 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                node{
+                    docker.image('postgres')
+                }
             }
         }
         stage('Test') {
