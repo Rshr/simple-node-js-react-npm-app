@@ -1,3 +1,4 @@
 FROM node:14-alpine
-
-RUN apk add -U subversion
+USER root
+RUN apt-get update && apt-get install -y --no-install-recommmeds
+USER jenkins
