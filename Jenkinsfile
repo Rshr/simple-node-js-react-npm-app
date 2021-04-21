@@ -1,6 +1,8 @@
 node {
     checkout scm
-    pipeline{
+
+}
+pipeline{
         agent {
             docker {image 'postgres:latest'}
         }
@@ -12,4 +14,3 @@ node {
             }
         }
     }
-}
