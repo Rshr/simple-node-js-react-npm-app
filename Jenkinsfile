@@ -1,7 +1,5 @@
 pipeline{
-        agent {
-            label 'master'
-        }
+        agent any
         stages{
             stage('install dependencies'){
                 agent {
