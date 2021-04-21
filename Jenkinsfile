@@ -1,6 +1,9 @@
 pipeline{
         agent {
-            docker {label 'master'}
+            docker {
+                label 'master'
+                image 'node'
+            }
         }
         stages{
             stage('setup db'){
