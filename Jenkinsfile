@@ -1,10 +1,14 @@
 pipeline{
         agent {
             label 'master'
-            image 'node'
         }
         stages{
             stage('install dependencies'){
+                agent {
+                    docker{
+                         image 'node'
+                    }
+                }
                 steps{
                     sh 'npm install' 
                 }
