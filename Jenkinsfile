@@ -1,9 +1,10 @@
 node{
-    tools {nodejs "node"}
+
 	stage('SCM'){
 		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rshr/simple-node-js-react-npm-app.git']]])
 	}
 	stage('Build Web App Dependency'){
+        tools {nodejs "node"}
 		try{
 		sh 'npm install'
 		}finally{
