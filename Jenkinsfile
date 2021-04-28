@@ -6,13 +6,17 @@ node{
 	stage('Build Web App Dependency'){
      
 		try{
-		sh 'npm install'
+            nodejs('node') {
+                sh 'npm install'
+            }
+
+		
 		}finally{
 		sh 'echo dependencies have been built'
 		}
 	}
 	stage('Test'){
-		echo 'Execute unit tests'
+		sh './jenkins/scripts/test.sh'
 	}
     stage('Build'){
         sh 'npm run build'
