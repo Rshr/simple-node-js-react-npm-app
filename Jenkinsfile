@@ -8,23 +8,9 @@ node{
 		try{
             nodejs('node') {
                 sh 'npm install'
-            }
-
-		
+            }	
 		}finally{
 		sh 'echo dependencies have been built'
 		}
-	}
-	stage('Test'){
-		sh './jenkins/scripts/test.sh'
-	}
-    stage('Build'){
-        sh 'npm run build'
-    }
-	stage('Package'){
-		echo 'Zip it up'
-	}
-	stage('Deploy'){
-		echo 'Push to deployment'
 	}
 }
