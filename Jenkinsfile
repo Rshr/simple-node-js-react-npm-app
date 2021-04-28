@@ -1,13 +1,13 @@
-node('node') {
+node {
 
 
     currentBuild.result = "SUCCESS"
 
     try {
 
-	stage('SCM'){
-		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rshr/simple-node-js-react-npm-app.git']]])
-	}
+        stage('SCM'){
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rshr/simple-node-js-react-npm-app.git']]])
+        }
 
        stage('Test'){
 
