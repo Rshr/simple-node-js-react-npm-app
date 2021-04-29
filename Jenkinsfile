@@ -23,8 +23,12 @@ pipeline {
         stage('Pre-flight'){
             steps{
                 echo 'serve up the build '
-                sh 'npm run serve'
+                sh 'npm run serve &'
+                sh 'sleep 1'
+                sh 'echo $! > .pidfile'
                 sh 'curl -Is http://localhost:4000'
+                sh 'kill $(cat .pidfile)'
+                
             }
         }
         stage('Deploy'){
