@@ -6,4 +6,3 @@ WORKDIR /app
 
 COPY . /app
 
-ENTRYPOINT [ "npm" ]
