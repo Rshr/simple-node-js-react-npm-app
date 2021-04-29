@@ -30,7 +30,7 @@ pipeline {
                 sh'set -x'
                 sh'npm run serve &'
                 sh'curl -Is http://localhost:4000'
-                sh 'ps -A | grep -i serve'
+                sh 'pgrep serve  '
                 sh'set +x'
                                 
             }
