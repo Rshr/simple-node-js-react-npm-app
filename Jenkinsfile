@@ -11,20 +11,29 @@ pipeline {
         stage('Test'){
           steps {
             echo 'Running web App test cases.'
-            sh './jenkins/scripts/test.sh'
+            sh 'set -x'
+            sh 'npm run test'
+            sh 'set +x'
             }
         }
         stage('Build'){
             steps{
                 echo 'Building Web Application'
-                sh './jenkins/scripts/build.sh'
+                sh 'set -x'
+                sh 'npm run build'
+                sh 'set +x'
             }
         }
         stage('Pre-flight'){
             steps{
                 echo 'serve up the build '
-                sh'./jenkins/scripts/preflight.sh'
-                sh'./jenkins/scripts/kill.sh'
+                sh 'set -x'
+                sh' npm run serve &'
+                sh' sleep 1'
+                sh' echo $! > .pidfile'
+                sh' set +x'
+                sh' set -x'
+                sh 'kill $(cat .pidfile)'
             }
         }
         stage('Deploy'){
