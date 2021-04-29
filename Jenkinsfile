@@ -23,7 +23,6 @@ pipeline {
         stage('Pre-flight'){
             steps{
                 echo 'serve up the build '
-                sh 'npm install -g serve'
                 sh 'serve -s build -l 4000'
                 sh 'curl -Is http://localhost:4000'
             }
