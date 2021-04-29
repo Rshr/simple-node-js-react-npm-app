@@ -24,17 +24,6 @@ pipeline {
                 sh 'set +x'
             }
         }
-        stage('Pre-flight'){
-            steps{
-                echo 'serve up the build '
-                sh'set -x'
-                sh'npm run serve &'
-                sh'curl -Is http://localhost:4000'
-                sh 'pgrep serve  '
-                sh'set +x'
-                                
-            }
-        }
         stage('Deploy'){
             steps{
                 echo 'ssh build folder to deploy server and issue rerun command.'
