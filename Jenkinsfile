@@ -8,8 +8,8 @@ pipeline{
                 reuseNode true
             }
         }
-
-       stage('Test'){
+      try{
+         stage('Test'){
 
          env.NODE_ENV = "test"
 
