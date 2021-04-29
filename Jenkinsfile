@@ -1,8 +1,11 @@
 pipeline{
         agent {
             docker {
-                image 'node:alpine:3.11'
-                args '-p 3000:3000'
+                alwaysPull true
+                customWorkspace '/var/jenkins_home'
+                image 'library/node:latest'
+                label 'node'
+                reuseNode true
             }
         }
         environment {
