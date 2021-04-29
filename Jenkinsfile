@@ -11,24 +11,20 @@ pipeline {
         stage('Test'){
           steps {
             echo 'Running web App test cases.'
-            sh 'npm run test'
+            sh './jenkins/scripts/test.sh'
             }
         }
         stage('Build'){
             steps{
                 echo 'Building Web Application'
-                sh 'npm run build'
+                sh './jenkins/scripts/build.sh'
             }
         }
         stage('Pre-flight'){
             steps{
                 echo 'serve up the build '
-                sh 'npm run serve &'
-                sh 'sleep 1'
-                sh 'echo $! > .pidfile'
-                sh 'curl -Is http://localhost:4000'
-                sh 'kill $(cat .pidfile)'
-                
+                sh'./jenkins/scripts/preflight.sh'
+                sh'./jenkins/scripts/kill.sh'
             }
         }
         stage('Deploy'){
